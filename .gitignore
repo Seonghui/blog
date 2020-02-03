@@ -1,0 +1,7 @@
+## MacOS
+.bundle
+.sass-cache
+node_modules
+.DS_Store
+/public
+.deploy_git/
