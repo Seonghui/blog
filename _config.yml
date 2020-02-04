@@ -104,15 +104,13 @@ deploy:
 
 # RSS Feed(hexo-generator-feed)
 feed:
-  type: rss2
-  path: rss2.xml
+  type: atom
+  path: atom.xml
   limit: 20
 
 # Sitemap (hexo-generator-seo-friendly-sitemap)
 sitemap:
-  path: sitemap.xml #생성될 경로
-  tag: false #sitemap에 tag 포함 여부
-  category: false #sitemap에 category 포함 여부
+  path: sitemap.xml
 
 # Robot.txt (hexo-generator-robotstxt)
 robotstxt:
