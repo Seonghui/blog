@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.ico">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans KR:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://seonghui.github.io/blog').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.7.1',
+    exturl: true,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="dev blog">
+<meta property="og:url" content="https://seonghui.github.io/blog/index.html">
+<meta property="og:site_name" content="dev blog">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:author" content="Stella">
+<meta property="article:tag" content="개발">
+<meta property="article:tag" content=" 기술블로그">
+<meta property="article:tag" content=" 자바스크립트">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" javascript">
+<meta property="article:tag" content=" 알고리즘">
+<meta property="article:tag" content=" algorithm">
+<meta property="article:tag" content=" 웹개발">
+<meta property="article:tag" content=" 웹">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://seonghui.github.io/blog/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>dev blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144356483-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-144356483-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/blog/atom.xml" title="dev blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">dev blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>홈</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>태그</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>카테고리</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>아카이브</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2020/07/26/next-styled-components/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/26/next-styled-components/" class="post-title-link" itemprop="url">Next.js에 Styled-components 적용하기</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-07-26 22:50:02 / Updated at: 22:54:22" itemprop="dateCreated datePublished" datetime="2020-07-26T22:50:02+09:00">2020-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2020/07/26/next-styled-components/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/26/next-styled-components/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Next.js에 Styled Components를 적용하고 새로고침을 하면 콘솔에 아래와 같이 나온다.</p>
+<p><img src="/blog/images/2020-07-26-next-styled-components/2020-07-11__12.06.58.png" alt="/blog/images/2020-07-26-next-styled-components/2020-07-11__12.06.58.png"></p>
+<p>왜일까? 🤔<br>server와 client 어쩌고 나오는 것을 보니 ssr 문제처럼 보인다.<br>구글링을 해보자.</p>
+<p><img src="/blog/images/2020-07-26-next-styled-components/2020-07-11__1.23.42.png" alt="/blog/images/2020-07-26-next-styled-components/2020-07-11__1.23.42.png"></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3ZlcmNlbC9uZXh0LmpzL3RyZWUvY2FuYXJ5L2V4YW1wbGVzL3dpdGgtc3R5bGVkLWNvbXBvbmVudHM=" title="https://github.com/vercel/next.js/tree/canary/examples/with-styled-components">https://github.com/vercel/next.js/tree/canary/examples/with-styled-components<i class="fa fa-external-link"></i></span></p>
+<p>관련 예제가 있다. (살았다.)<br>예제의 목적은 요약하면 다음과 같다.</p>
+<ul>
+<li><Document />를 확장하고 <head>에 서버 사이드 렌더링된 스타일을 주입</li>
+<li>서버 사이드 렌더링에 필요한 babel-plugin-styled-components 플러그인을 추가</li>
+</ul>
+<h1 id="적용-방법"><a href="#적용-방법" class="headerlink" title="적용 방법"></a>적용 방법</h1><h2 id="1-babel-플러그인-설치-및-설정"><a href="#1-babel-플러그인-설치-및-설정" class="headerlink" title="1. babel 플러그인 설치 및 설정"></a>1. babel 플러그인 설치 및 설정</h2><p>babel-plugin-styled-components를 설치한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-plugin-styled-components</span><br></pre></td></tr></table></figure>
+
+<p>그리고 다음과 같이 .babelrc 설정을 해주자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;next&#x2F;babel&quot;],</span><br><span class="line">  &quot;plugins&quot;: [[&quot;styled-components&quot;, &#123; &quot;ssr&quot;: true &#125;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-document-js-파일-생성"><a href="#2-document-js-파일-생성" class="headerlink" title="2. _document.js 파일 생성"></a>2. _document.js 파일 생성</h2><p>pages 폴더에 _document.js 파일을 생성한다. 이 파일에서 <Documents />를 확장해 <head>에 서버 사이드 렌더링된 스타일을 주입한다.<br>한마디로 next.js의 index.html head에 서버 사이드 렌더링 스타일을 주입시켜 주는 것이다.</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Document <span class="keyword">from</span> <span class="string">"next/document"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; ServerStyleSheet &#125; <span class="keyword">from</span> <span class="string">"styled-components"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyDocument</span> <span class="keyword">extends</span> <span class="title">Document</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">async</span> getInitialProps(ctx) &#123;</span><br><span class="line">    <span class="keyword">const</span> sheet = <span class="keyword">new</span> ServerStyleSheet();</span><br><span class="line">    <span class="keyword">const</span> originalRenderPage = ctx.renderPage;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// sheet을 사용해 정의된 모든 스타일을 수집</span></span><br><span class="line">      ctx.renderPage = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">        originalRenderPage(&#123;</span><br><span class="line">          enhanceApp: <span class="function">(<span class="params">App</span>) =&gt;</span> <span class="function">(<span class="params">props</span>) =&gt;</span></span><br><span class="line">            sheet.collectStyles(<span class="xml"><span class="tag">&lt;<span class="name">App</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span></span>),</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Documents의 initial props</span></span><br><span class="line">      <span class="keyword">const</span> initialProps = <span class="keyword">await</span> Document.getInitialProps(ctx);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// props와 styles를 반환</span></span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...initialProps,</span><br><span class="line">        styles: (</span><br><span class="line">          &lt;&gt;</span><br><span class="line">            &#123;initialProps.styles&#125;</span><br><span class="line">            &#123;sheet.getStyleElement()&#125;</span><br><span class="line">          &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">        ),</span></span><br><span class="line"><span class="regexp">      &#125;;</span></span><br><span class="line"><span class="regexp">    &#125; finally &#123;</span></span><br><span class="line"><span class="regexp">      sheet.seal();</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Styled component에서 제공하는 ServerStyleSheet를 활용해 정의된 모든 스타일을 수집하고, 페이지가 렌더링되기 전에 props와 styles를 채워준다. 수집된 스타일은 getStyleElement 메소드로 <code>&lt;style&gt;</code> 태그에 감싸져 head에 뿌려지게 된다.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2020/07/26/debug-closure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/07/26/debug-closure/" class="post-title-link" itemprop="url">[Javascript] 크롬 개발자 도구를 이용해서 알아보는 클로저</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2020-07-26 16:15:19 / Updated at: 22:49:21" itemprop="dateCreated datePublished" datetime="2020-07-26T16:15:19+09:00">2020-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" itemprop="url" rel="index">
+                    <span itemprop="name">자바스크립트</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2020/07/26/debug-closure/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/26/debug-closure/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>클로저의 대표적인 개념은 다음과 같습니다.</p>
+<ol>
+<li>클로저는 이미 생명 주기가 끝난 외부 함수의 변수를 참조하는 현상이다.</li>
+<li>클로저는 선언될 당시의 정보를 담는다.</li>
+<li>선언될 당시의 정보를 외부로 노출시킬 수 있는 유일한 방법은 함수 내부에서 return하는 것이다.</li>
+</ol>
+<p>처음 자바스크립트를 배울 때 이 개념이 너무 어려웠었던 기억이 납니다. <del>(물론 지금도 어렵…)</del><br>그래서 클로저 예제를 크롬 개발자 도구로 디버깅해서 어떻게 동작하는지 확인해봅시다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> outer = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> inner = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ++count;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> outer2 = outer();</span><br><span class="line"><span class="built_in">console</span>.log(outer2());</span><br><span class="line"><span class="built_in">console</span>.log(outer2());</span><br></pre></td></tr></table></figure>
+
+<p>검색하면 흔하게 볼 수 있는 클로저 예제입니다.<br>outer 함수에서 inner 함수를 반환하고, 그걸 outer2 변수에 담아 실행하는 예제입니다. <strong>선언된 당시의 정보인 inner를 함수 내부에서 return 하여 외부로 노출(개념 3번)</strong>시키고 있습니다.</p>
+<p>이때 outer() 함수의 실행은 끝났다고 볼 수 있습니다. 하지만 outer2 변수가 참조하고 있죠.<br>따라서 outer2는 실행이 끝나버린 outer() 함수의 inner에 접근할 수 있습니다.<br>그런데 어떻게 실행이 끝나버린 함수의 내부에 접근할 수 있을까요?</p>
+<p>이는 실행이 끝났어도 그것을 참조하는 대상이 하나라도 있는 경우 가비지 컬렉션의 대상이 되지 않아서입니다.<br>그래서 클로저를 더이상 실행하지 않을 경우 참조를 다 끊어버려 가비지 컬렉터가 수거해가게 만들면 메모리 관리를 효율적으로 할 수 있겠죠.<br>아무튼 이렇게 글로만 봐서는 잘 안 와닿을 수 있습니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_1.58.25.png" alt="2020-07-26-debug-closure/2020-07-26_1.58.25.png"></p>
+<p>해당 부분에 breakpoint를 지정합니다. breakpoint를 지정하면 해당 파일을 실행할 때 breakpoint에서 실행이 멈추게 됩니다.<br>breakpoint를 지정하면 우측 breakpoints 패널에 현재 지정한 breakpoint들이 나옵니다.<br>지정이 끝났으면 새로고침을 해봅시다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_1.59.00.png" alt="2020-07-26-debug-closure/2020-07-26_1.59.00.png"></p>
+<p>8번 라인이 실행된 상태로 실행이 중단됩니다.<br>우선 콜 스택 부분을 봅시다. 처음에는 전역 컨텍스트가 실행되기 때문에 anoymous 함수가 쌓입니다. 실행 컨텍스트를 설명하는 다른 글에서는 main 함수가 쌓인다고도 하는데 anoymous 함수나 main 함수나 동일합니다. 단지 표현의 차이일 뿐입니다. (크롬은 anoymous로 표현)<br>전역 컨텍스트이기 때문에 스코프는 글로벌이 됩니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.00.20.png" alt="2020-07-26-debug-closure/2020-07-26_2.00.20.png"></p>
+<p>Step(빨간 박스) 버튼을 눌러 다음 실행으로 이동합니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.01.52.png" alt="2020-07-26-debug-closure/2020-07-26_2.01.52.png"></p>
+<p>outer 함수가 실행되면서 콜스택에 쌓입니다.</p>
+<p>이때 함수가 호출된 상태이기 때문에 자바스크립트 엔진이 outer에 대한 환경 정보를 수집해서 실행 컨텍스트를 생성합니다. 환경 정보는 함수 내에 있는 모든 것(변수, 함수 선언, 스코프, this)이라 생각하면 편합니다. 그래서 scope에 count, inner, this가 생성되는 것입니다. <strong>위에서 클로저는 선언된 당시의 정보를 담는다고 그랬죠?(개념 2번) outer 스코프 내에 있는 count와 inner, this가 바로 outer 함수의 정보라 할 수 있습니다</strong>.</p>
+<p>참고로 count와 inner의 값이 undefined인 이유는 아직 할당 단계에 다다르지 않았기 때문입니다. 실행 컨텍스트에서 변수는 선언 단계 → 초기화 단계 → 할당 단계를 거쳐 값이 할당되게 되는데, var 키워드로 선언된 변수의 경우 선언 단계와 초기화 단계가 한번에 이루어지게 됩니다. 이 상태에서 count 변수나 inner 함수에 접근하면 undefined를 반환하는데요, 이게 그 유명한 호이스팅입니다.</p>
+<p>잠시 딴 길로 샜는데요. Step 버튼을 눌러 다음 라인으로 가봅시다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.18.18.png" alt="2020-07-26-debug-closure/2020-07-26_2.18.18.png"></p>
+<p>변수 count는 할당 단계를 거쳐 1을 할당받았습니다.</p>
+<p>한번 더 Step 버튼을 눌러봅시다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.19.55.png" alt="2020-07-26-debug-closure/2020-07-26_2.19.55.png"></p>
+<p>inner는 할당 단계를 거쳐 익명 함수(<code>function() {return ++count;}</code>)를 할당받았습니다.<br>이때 outer 함수의 스코프에는 return value가 생깁니다. 이때의 return value는 inner겠죠?<br>return value가 함수로 나오는 이유는 inner가 익명 함수를 할당받았기 때문입니다.<br>다음 Step으로 가봅시다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.25.15.png" alt="2020-07-26-debug-closure/2020-07-26_2.25.15.png"></p>
+<p>outer 함수의 실행이 종료되었습니다. 우측 콜 스택 패널을 보면 outer 함수가 사라진 것을 확인할 수 있습니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.26.10.png" alt="2020-07-26-debug-closure/2020-07-26_2.26.10.png"></p>
+<p>9번 라인에서 outer2()가 실행된 모습입니다. <strong>위에서 클로저는 이미 생명 주기가 끝난 외부 함수의 변수를 참조하는 현상(개념 1번)이라고 했었습니다. outer2()는 이미 생명 주기가 끝난 outer() 함수의 변수 inner를 참조하고 있기 때문에 4번 라인으로 이동하게 됩니다.</strong></p>
+<p>outer2로 inner 함수를 실행한 상태이기 때문에 콜 스택에는 inner가 쌓이게 됩니다.<br>우측 스코프 패널을 보시면 스코프에 outer 클로저가 보입니다. 이때 count의 값은 1입니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.35.36.png" alt="2020-07-26-debug-closure/2020-07-26_2.35.36.png"></p>
+<p>전위 연산을 하고 있기 때문에 count는 1이 증가된 2로 반환됩니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.36.58.png" alt="2020-07-26-debug-closure/2020-07-26_2.36.58.png"></p>
+<p>inner() 함수가 종료되며 콜 스택에서 사라졌습니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.38.10.png" alt="2020-07-26-debug-closure/2020-07-26_2.38.10.png"></p>
+<p>그리고 콘솔에는 2가 출력이 됩니다.<br>10번째 줄을 실행할 차례입니다. 9번 라인을 실행했을 때와 동일합니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.39.16.png" alt="2020-07-26-debug-closure/2020-07-26_2.39.16.png"></p>
+<p>여기서 한가지 주의깊게 보아야 할 것은, 10번 라인을 실행할 때 9번 라인에서 실행한 값을 기억하고 있다는 것입니다. outer2에서 값을 참조하고 있기 때문이죠.<br>우측 scope 패널의 count를 보면 값이 2인 것을 확인할 수 있습니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.40.36.png" alt="2020-07-26-debug-closure/2020-07-26_2.40.36.png"></p>
+<p>전위 연산이 되어 count의 return value는 3이 됩니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.41.25.png" alt="2020-07-26-debug-closure/2020-07-26_2.41.25.png"></p>
+<p>inner() 함수가 종료되며 콜 스택에서 사라졌습니다.</p>
+<p><img src="/blog/images/2020-07-26-debug-closure/2020-07-26_2.42.14.png" alt="2020-07-26-debug-closure/2020-07-26_2.42.14.png"></p>
+<p>마지막으로 3을 출력한 모습입니다.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2020/02/03/post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2020/02/03/post/" class="post-title-link" itemprop="url">Jekyll에서 Hexo로 블로그 이전하기</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2020-02-03 15:27:56" itemprop="dateCreated datePublished" datetime="2020-02-03T15:27:56+09:00">2020-02-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-07-26 15:53:14" itemprop="dateModified" datetime="2020-07-26T15:53:14+09:00">2020-07-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/etc/" itemprop="url" rel="index">
+                    <span itemprop="name">etc</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2020/02/03/post/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/03/post/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="이전을-하는-이유"><a href="#이전을-하는-이유" class="headerlink" title="이전을 하는 이유"></a>이전을 하는 이유</h1><p>Jekyll에서 Hexo로 블로그를 이전했다.<br>이전을 마음먹은 이유는 다음과 같다.</p>
+<ol>
+<li>Ruby가 아닌 Node 기반의 Static Site Generator를 사용하고 싶어서.</li>
+<li>Jekyll 테마들이 마음에 안 들어서. (그래서 TIL과 기술 블로그를 분리했으나… 귀찮음만 더할 뿐이었다.)</li>
+<li>셋업이 귀찮아서.</li>
+</ol>
+<p>더 자세히 말하자면, <a href="https://seonghui.github.io/TIL/">TIL 블로그</a>에서 사용하고 있던 <span class="exturl" data-url="aHR0cHM6Ly9wbWFyc2NlaWxsLmdpdGh1Yi5pby9qdXN0LXRoZS1kb2NzLw==" title="https://pmarsceill.github.io/just-the-docs/">Just the Docs<i class="fa fa-external-link"></i></span> 테마가 자잘한 오류들을 뿜어내고 있었다. 메뉴들이 사라진다거나, 순서가 뒤죽박죽이 되거나, 한국어 검색 기능 등이 제대로 동작하지 않았다. Jekyll의 초기 세팅도 까다롭게 느껴졌다. 어느새부턴가 macOS에서 루비를 사용하면 permission 문제가 발생해 가상 환경에 루비를 설치해야 했다.<br>이런 상황이 지속되니 기술 블로그를 등한시하고 Notion에 모든 것을 기록하기 시작했다. Notion은 다 좋지만, 배출의 욕구가 해소되지 않았다. 나는 세미(?) 관종이고 검색 엔진에 내 글이 조금이라도 노출됐으면 했다.</p>
+<p>고로 블로그 프레임워크를 바꾸기로 마음먹었다. 프레임워크를 Hexo로 결정한 건 순전히 테마가 마음에 들어서다.</p>
+<h1 id="Github-프로젝트-리포지토리에-Hexo-배포하기"><a href="#Github-프로젝트-리포지토리에-Hexo-배포하기" class="headerlink" title="Github 프로젝트 리포지토리에 Hexo 배포하기"></a>Github 프로젝트 리포지토리에 Hexo 배포하기</h1><p>Hexo는 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv" title="https://hexo.io/docs/">문서화<i class="fa fa-external-link"></i></span>가 굉장히 잘 되어있으므로 공식 문서만 보면 뚝딱 블로그를 만들 수 있다. <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2tvL2RvY3MvbWlncmF0aW9u" title="https://hexo.io/ko/docs/migration">Jekyll에서 Hexo로 마이그레이션<i class="fa fa-external-link"></i></span>도 금방 한다. 문제는 <strong>배포</strong>인데, Jekyll과 달리 정적 파일을 generate 해주어야 한다.<br>그런데 배포 시 <code>&lt;username&gt;.github.io</code>로 블로그를 만들면 원본 소스 파일들을 올리지 못하게 된다.</p>
+<p>github <span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmdpdGh1Yi5jb20vZW4vZ2l0aHViL3dvcmtpbmctd2l0aC1naXRodWItcGFnZXMvYWJvdXQtZ2l0aHViLXBhZ2VzI3B1Ymxpc2hpbmctc291cmNlcy1mb3ItZ2l0aHViLXBhZ2VzLXNpdGVz" title="https://help.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites">문서<i class="fa fa-external-link"></i></span>를 보면 다음과 같은 내용이 있다.</p>
+<blockquote>
+<p>The default publishing source for user and organization sites is the master branch. If the repository for your user or organization site has a master branch, your site will publish automatically from that branch. You cannot choose a different publishing source for user or organization sites.</p>
+</blockquote>
+<p><code>&lt;username&gt;.github.io</code> 같은 리포지토리는 위에서 말한 <strong>user site</strong> 에 해당된다.<br>즉 <code>&lt;username&gt;.github.io</code>로 페이지를 퍼블리싱 하는 경우, 반드시 master 브랜치에 <code>index.html</code> 파일이 있어야 한다. 따라서 <code>hexo generate</code>로 생성한 배포 파일들을 master 브랜치로 푸시해야 하는데, 이렇게 하니 원본 소스의 버전 관리가 안 되는 단점이 생긴다.</p>
+<p>하지만, 프로젝트 리포지토리에 배포를 하는 경우 docs 폴더나 gh-pages 브랜치에 배포를 하면 정적 사이트를 생성할 수 있다. 그래서 프로젝트 리포지토리를 활용하기로 했다. <strong>프로젝트 리포지토리의 master 브랜치에는 버전 관리가 필요한 원본 소스를 푸시하고, gh-pages 브랜치에는 <code>hexo generate</code> 명령어로 생성한 파일들을 푸시</strong>하면 되는 것이다.<br>우선 github에서 blog라는 리포지토리를 생성 후 hexo 블로그를 연동한 다음, <code>_config.yml</code> 파일을 열어 다음과 같이 설정을 해주었다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># url은 https://seonghui.github.io/&lt;리포지토리 이름&gt;으로 설정</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://seonghui.github.io/blog</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 루트를 '/&lt;리포지토리 이름&gt;/'으로 설정</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/blog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment"># 리포지토리 연결</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/Seonghui/blog</span></span><br><span class="line">  <span class="comment"># 배포할 브랜치를 gh-pages로 설정</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+
+<p>이후 <code>hexo clean &amp;&amp; hexo deploy</code> 명령어로 gh-pages 브랜치에에 배포를 하고, 변경된 파일을 master 브랜치에 푸시하면 끝이다. 배포가 잘 되었는지는 <code>https://&lt;username&gt;.github.io/&lt;리포지토리&gt;</code>에서 확인하면 된다.</p>
+<p>만약 404 에러가 뜨는 경우, 해당 리포지토리의 settings 메뉴의 GitHub Pages의 Source를 <strong>gh-pages branch</strong>로 변경하면 된다.</p>
+<p><img src="/blog/images/2020-02-03-post/5.png" alt="example"><br><img src="/blog/images/2020-02-03-post/10.png" alt="example"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/12/14/leetcode-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/12/14/leetcode-20/" class="post-title-link" itemprop="url">[Leetcode] valid-parentheses</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-12-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-14T00:00:00+09:00">2019-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/12/14/leetcode-20/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/14/leetcode-20/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Leetcode - <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvdmFsaWQtcGFyZW50aGVzZXMvc3VibWlzc2lvbnMv" title="https://leetcode.com/problems/valid-parentheses/submissions/">20<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h2 id="Code-1-Javascript"><a href="#Code-1-Javascript" class="headerlink" title="Code 1 (Javascript)"></a>Code 1 (Javascript)</h2><ol>
+<li>({[ 은 배열에 push 한다.</li>
+<li>]}) 은 짝이 맞을 경우 pop을 한다. 이때 배열의 가장 마지막 요소를 체크하면 된다. 만약 짝이 맞지 않을 경우 false를 반환한다.</li>
+<li>배열에 아무것도 없으면 짝이 맞는 거니까 true를 반환한다.</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> array = [];</span><br><span class="line">  <span class="keyword">for</span> (char <span class="keyword">of</span> s) &#123;</span><br><span class="line">    <span class="keyword">switch</span> (char) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">")"</span>:</span><br><span class="line">        <span class="keyword">if</span> (array[array.length - <span class="number">1</span>] === <span class="string">"("</span>) &#123;</span><br><span class="line">          array.pop();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"&#125;"</span>:</span><br><span class="line">        <span class="keyword">if</span> (array[array.length - <span class="number">1</span>] === <span class="string">"&#123;"</span>) &#123;</span><br><span class="line">          array.pop();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"]"</span>:</span><br><span class="line">        <span class="keyword">if</span> (array[array.length - <span class="number">1</span>] === <span class="string">"["</span>) &#123;</span><br><span class="line">          array.pop();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        array.push(char);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array.length ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Code-2-Javascript"><a href="#Code-2-Javascript" class="headerlink" title="Code 2 (Javascript)"></a>Code 2 (Javascript)</h2><ul>
+<li>미리 괄호들을 object로 선언. ([{을 키로, }])을 값으로 지정 후 짝이 맞는지를 판단하면 된다.</li>
+<li>이때 배열의 마지막 값은 stack.pop()으로 알아낸다. 키와 값이 맞지 않을 경우 false를 반환한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isValid = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> stack = [];</span><br><span class="line">  <span class="keyword">const</span> pair = &#123;</span><br><span class="line">    <span class="string">"("</span>: <span class="string">")"</span>,</span><br><span class="line">    <span class="string">"["</span>: <span class="string">"]"</span>,</span><br><span class="line">    <span class="string">"&#123;"</span>: <span class="string">"&#125;"</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> char <span class="keyword">of</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (char <span class="keyword">in</span> pair) stack.push(char);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pair[stack.pop()] !== char) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> stack.length ? <span class="literal">false</span> : <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/11/25/react-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/11/25/react-index/" class="post-title-link" itemprop="url">[React] index.html에는 index.js를 불러오는 코드가 없는데, index.js는 어떻게 index.html 파일 내에 있는 root div를 참조하는 것일까?</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-11-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-25T00:00:00+09:00">2019-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/11/25/react-index/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/25/react-index/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>create-react-app으로 리액트 프로젝트를 생성해 보자. create-react-app은 리액트의 보일러 플레이트 코드를 생성하기 때문에 직접 개발 환경을 구성하지 않더라도 별도의 설정 없이 프로젝트를 바로 시작할 수 있다.</p>
+<p>package.json 내의 script 명령을 보면 이런 게 있다.</p>
+<pre><code>&quot;start&quot;: &quot;react-scripts start&quot;,</code></pre><p>이 코드는 node_modules./bin 폴더에 있는 react-scripts.js 파일을 실행시킨다.</p>
+<p>react-scripts는 create-react-app의 스크립트를 모아놓은 곳이다. react-scripts start는 개발 환경을 셋업하고, 핫 리로딩이 적용된 서버를 실행시킨다.</p>
+<p>react-scripts.js 파일을 열어보면 대략 다음과 같이 되어있다.</p>
+<pre><code>...생략
+if ([&apos;build&apos;, &apos;eject&apos;, &apos;start&apos;, &apos;test&apos;].includes(script)) {
+  const result = spawn.sync(
+    &apos;node&apos;,
+    nodeArgs
+      .concat(require.resolve(&apos;../scripts/&apos; + script))
+      .concat(args.slice(scriptIndex + 1)),
+    { stdio: &apos;inherit&apos; }
+  );
+  ...생략
+  process.exit(result.status);
+}
+...생략</code></pre><p>build, eject, start, test 키워드가 있을 경우, <code>../scripts/</code> 폴더 내의 파일을 찾게 된다.</p>
+<p><img src="/images/react-index/index-1.png" alt="example"></p>
+<p>react-scripts start 명령어의 경우, 키워드는 start니까 <code>../scripts/</code> 폴더 내에 있는 start.js 파일을 열어보자.</p>
+<pre><code>...생략
+const paths = require(&apos;../config/paths&apos;);
+
+// Warn and crash if required files are missing
+if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
+  process.exit(1);
+}
+...생략</code></pre><p><code>checkRequiredFiles()</code> 로 배열 내의 파일 경로가 유효한 경로인지 확인한다. <code>checkRequiredFiles()</code> 는 react-dev-utill 내에 있다. 만약 파일이 없거나 경로가 유효하지 확인하고, 전부 존재한다면 if문 아래에 있는 개발 서버 실행 코드를 실행시킨다.</p>
+<p><code>../config/paths</code> 내에 있는 paths.appHtml, paths.appIndexJs을 확인해보자.</p>
+<p>paths.js 파일은 eject 이전의 경로, eject 이후의 경로 그리고 publish 이전의 경로를 나눠서 관리한다.</p>
+<pre><code>const moduleFileExtensions = [
+  &apos;web.mjs&apos;,
+  &apos;mjs&apos;,
+  &apos;web.js&apos;,
+  &apos;js&apos;,
+  &apos;web.ts&apos;,
+  &apos;ts&apos;,
+  &apos;web.tsx&apos;,
+  &apos;tsx&apos;,
+  &apos;json&apos;,
+  &apos;web.jsx&apos;,
+  &apos;jsx&apos;,
+];
+
+const resolveModule = (resolveFn, filePath) =&gt; {
+  const extension = moduleFileExtensions.find(extension =&gt;
+    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+  );
+
+  if (extension) {
+    return resolveFn(`${filePath}.${extension}`);
+  }
+
+  return resolveFn(`${filePath}.js`);
+};
+
+const resolveOwn = relativePath =&gt; path.resolve(__dirname, &apos;..&apos;, relativePath);
+
+module.exports = {
+    appHtml: resolveOwn(&apos;template/public/index.html&apos;),
+    appIndexJs: resolveModule(resolveOwn, &apos;template/src/index&apos;),
+};</code></pre><p><code>resolveModule(resolveOwn, &#39;template/src/index&#39;)</code> 인 이유는 appIndexJs가 자바스크립트 파일이 아닐 수도 있기 때문이다. (ts, jsx 등등…)</p>
+<p>resolveOwn()을 호출하면 현재 모듈의 디렉토리 이름을 포함한 경로를 반환한다.</p>
+<p>resolveModule()에 resolveOwn()함수와 <code>template/src/index</code> 를 넘기면 현재 모듈의 디렉토리 + 파일 경로 + 확장자를 합쳐 경로를 만들고 resolveOwn()를 호출하게 된다.</p>
+<p>결론적으로는 현재 프로젝트에 있는 index.js와 index.html가 존재하는지 파악해, 경로에 파일이 존재하는 경우 개발 서버를 실행시키는 거라 할 수 있겠다.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNDE3Mzg0MjEvaG93LXJlYWN0LWpzLWluZGV4LWpzLWZpbGUtY29udGFjdGluZy1pbmRleC1odG1sLWZvci1pZC1yZWZlcmVuY2Vz" title="https://stackoverflow.com/questions/41738421/how-react-js-index-js-file-contacting-index-html-for-id-references">https://stackoverflow.com/questions/41738421/how-react-js-index-js-file-contacting-index-html-for-id-references<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNTA3MjIxMzMvd2hhdC1leGFjdGx5LWlzLXRoZS1yZWFjdC1zY3JpcHRzLXN0YXJ0LWNvbW1hbmQ=" title="https://stackoverflow.com/questions/50722133/what-exactly-is-the-react-scripts-start-command">https://stackoverflow.com/questions/50722133/what-exactly-is-the-react-scripts-start-command<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/26/pgs-42885/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/26/pgs-42885/" class="post-title-link" itemprop="url">[프로그래머스] 구명보트</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-26T00:00:00+09:00">2019-10-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" itemprop="url" rel="index">
+                    <span itemprop="name">프로그래머스</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/26/pgs-42885/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/26/pgs-42885/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>프로그래머스 - <span class="exturl" data-url="aHR0cHM6Ly9wcm9ncmFtbWVycy5jby5rci9sZWFybi9jb3Vyc2VzLzMwL2xlc3NvbnMvNDI4ODU=" title="https://programmers.co.kr/learn/courses/30/lessons/42885">탐욕법(Greedy)<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h2 id="풀이-과정"><a href="#풀이-과정" class="headerlink" title="풀이 과정"></a>풀이 과정</h2><p>이 문제는 O(n^2)로 풀면 시간 초과가 나오는 문제이다.</p>
+<p>나는 이 문제를 처음 풀 때, 오름차순으로 정렬한 다음 앞에서부터 차례대로 더해갔는데 이렇게 풀면 무조건 틀린다.<br>아래 케이스를 보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[10,20,30,40,50,60,70,80,90], 100</span><br></pre></td></tr></table></figure>
+
+<p>제한 사항에 각 사람의 몸무게는 40kg 이상 240kg으로 되어있지만, 저건 문제를 이해하는데 사용하는 예시이기 때문에 지금은 중요하지 않다.</p>
+<p>앞에서부터 차례대로 계산하면</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10, 20, 30, 40</span><br><span class="line">50</span><br><span class="line">60</span><br><span class="line">70</span><br><span class="line">80</span><br><span class="line">90</span><br><span class="line">-&gt; 6</span><br></pre></td></tr></table></figure>
+
+<p>6이 나오지만, 이 예제는 5가 반환되어야 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">10, 90</span><br><span class="line">20, 80</span><br><span class="line">30, 70</span><br><span class="line">40, 60</span><br><span class="line">50</span><br><span class="line">-&gt; 5</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 가장 큰 수와 가장 작은 수를 서로 더해주면 최솟값을 구할 수 있다.</p>
+<p>이를 구현하려면, 일단 people 배열을 오름차순으로 정렬한다.<br>그리고 가장 큰 수와 가장 작은 수를 더한 값이 limit보다 작거나 같으면 start와 count를 증가시킨다.</p>
+<p>이런 식으로 start와 end가 만나는 지점까지 반복한다.<br>start와 end가 만나는 상황은 비교할 대상이 한개(자기자신)밖에는 없을 때이다.<br>그런 경우에는 무조건 혼자 타야하기 때문에 count를 증가시킨다.</p>
+<p>가장 작은 수와 가장 큰 수를 더했을 때 limit보다 크면 가장 큰 수는 혼자 타야하기 때문에 count를 증가시킨다.</p>
+<p>이렇게 구현하는 경우 반복문 한 번만 사용하기 때문에 시간복잡도는 O(n)이 된다.</p>
+<h2 id="Code-Javascript"><a href="#Code-Javascript" class="headerlink" title="Code (Javascript)"></a>Code (Javascript)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">people, limit</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> start = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> end = people.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 오름차순으로 정렬</span></span><br><span class="line">  people.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// start와 end가 만나는 지점까지 반복</span></span><br><span class="line">  <span class="comment">// 뒤에서부터 앞으로 반복한다</span></span><br><span class="line">  <span class="keyword">for</span> (end; end &gt;= start; end--) &#123;</span><br><span class="line">    <span class="comment">// 가장 큰 수와 가장 작은 수를 더한 값이 limit보다 작거나 같으면</span></span><br><span class="line">    <span class="keyword">if</span> (people[end] + people[start] &lt;= limit) &#123;</span><br><span class="line">      <span class="comment">// start 증가</span></span><br><span class="line">      start++;</span><br><span class="line">    &#125;</span><br><span class="line">    count++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>만만하게 보고 풀었다가 정확도 60점 나와서 당황했고, 고쳐서 풀었더니 시간 초과를 보고, 시간복잡도를 줄일 방법이 도저히 생각나지 않아 결국 구글링을 했다.. 눈물.. ㅋ</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/24/pgs-42586/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/24/pgs-42586/" class="post-title-link" itemprop="url">[프로그래머스] 기능 개발</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-24T00:00:00+09:00">2019-10-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" itemprop="url" rel="index">
+                    <span itemprop="name">프로그래머스</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/24/pgs-42586/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/24/pgs-42586/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>프로그래머스 - <span class="exturl" data-url="aHR0cHM6Ly9wcm9ncmFtbWVycy5jby5rci9sZWFybi9jb3Vyc2VzLzMwL2xlc3NvbnMvNDI1ODY=" title="https://programmers.co.kr/learn/courses/30/lessons/42586">연습 문제<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h2 id="풀이과정"><a href="#풀이과정" class="headerlink" title="풀이과정"></a>풀이과정</h2><ul>
+<li>progresses[0]이 100 이상일 때, 다음 원소가 100 이상일 경우 count 증감</li>
+<li>count는 array에 push하고, count만큼 배열을 잘라버린다</li>
+<li>이렇게 배열에 원소가 없을 때까지 반복한다</li>
+<li>count가 0 이상일 때만 array에 push해야 하는데 나는 그냥 필터로 함…</li>
+</ul>
+<h2 id="Code-Javascript"><a href="#Code-Javascript" class="headerlink" title="Code (Javascript)"></a>Code (Javascript)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">progresses, speeds</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = [];</span><br><span class="line">  <span class="keyword">while</span> (progresses.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 개발</span></span><br><span class="line">    <span class="keyword">if</span> (progresses[<span class="number">0</span>] &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; progresses.length; i++) &#123;</span><br><span class="line">        progresses[i] = progresses[i] + speeds[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 배포</span></span><br><span class="line">    <span class="keyword">if</span> (progresses[<span class="number">0</span>] &gt;= <span class="number">100</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> progress <span class="keyword">of</span> progresses) &#123;</span><br><span class="line">        <span class="keyword">if</span> (progress &gt;= <span class="number">100</span>) &#123;</span><br><span class="line">          count += <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    progresses.splice(<span class="number">0</span>, count);</span><br><span class="line">    speeds.splice(<span class="number">0</span>, count);</span><br><span class="line">    array.push(count);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> answer = array.filter(<span class="function"><span class="params">el</span> =&gt;</span> el &gt; <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="다른-사람의-코드"><a href="#다른-사람의-코드" class="headerlink" title="다른 사람의 코드"></a>다른 사람의 코드</h2><p><code>progresses[0] &gt;= 100</code>일 때 배열 첫 번째 요소 제거 및 count 증감, 그리고 count가 0 이상일 때만 정답 배열에 삽입했다. 깔끔하다…</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">progresses, speeds</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> answer = [];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (speeds.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 개발</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> speeds) &#123;</span><br><span class="line">      <span class="keyword">if</span> (progresses[i] &lt; <span class="number">100</span>) &#123;</span><br><span class="line">        progresses[i] += speeds[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 배포</span></span><br><span class="line">    <span class="keyword">let</span> deploy_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (progresses[<span class="number">0</span>] &gt;= <span class="number">100</span>) &#123;</span><br><span class="line">      progresses.shift();</span><br><span class="line">      speeds.shift();</span><br><span class="line">      deploy_count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (deploy_count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      answer.push(deploy_count);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> answer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/23/pgs-12909/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/23/pgs-12909/" class="post-title-link" itemprop="url">[프로그래머스] 올바른 괄호</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-23T00:00:00+09:00">2019-10-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" itemprop="url" rel="index">
+                    <span itemprop="name">프로그래머스</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/23/pgs-12909/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/23/pgs-12909/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>프로그래머스 - <span class="exturl" data-url="aHR0cHM6Ly9wcm9ncmFtbWVycy5jby5rci9sZWFybi9jb3Vyc2VzLzMwL2xlc3NvbnMvMTI5MDk=" title="https://programmers.co.kr/learn/courses/30/lessons/12909">연습 문제<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h2 id="풀이과정"><a href="#풀이과정" class="headerlink" title="풀이과정"></a>풀이과정</h2><ul>
+<li>‘(‘ 면 count를 1 증가시키고 ‘)’면 1을 감소시킨다.</li>
+<li>만약 count가 0보다 작으면 중간에 ‘)’이 나온 경우이니 반복문을 멈춘다.</li>
+<li>count가 0인 경우에는 올바른 괄호이니 true 반환.</li>
+<li>count가 0이 아니고, 시작이 ‘)’이거나 끝이 ‘(‘라면 올바른 괄호가 아니니 false 반환.</li>
+</ul>
+<h2 id="Code-Python"><a href="#Code-Python" class="headerlink" title="Code (Python)"></a>Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(s)</span>:</span></span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> string <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> string == <span class="string">'('</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            count -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> count &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> count != <span class="number">0</span> <span class="keyword">or</span> s[<span class="number">0</span>] == <span class="string">')'</span> <span class="keyword">or</span> s[len(s) - <span class="number">1</span>] == <span class="string">'('</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>어디서 많이 봤던 문제다 했더니 <a href="https://seonghui.github.io/bj-9012/">백준 괄호</a>랑 똑같은 문제였네… 그때는 왜 이렇게 힘들게 풀었을까.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/22/pgs-42584/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/22/pgs-42584/" class="post-title-link" itemprop="url">[프로그래머스] 주식가격</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-22T00:00:00+09:00">2019-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/" itemprop="url" rel="index">
+                    <span itemprop="name">프로그래머스</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/22/pgs-42584/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/22/pgs-42584/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>프로그래머스 - <span class="exturl" data-url="aHR0cHM6Ly9wcm9ncmFtbWVycy5jby5rci9sZWFybi9jb3Vyc2VzLzMwL2xlc3NvbnMvNDI1ODQ=" title="https://programmers.co.kr/learn/courses/30/lessons/42584">스택/큐<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h2 id="풀이과정"><a href="#풀이과정" class="headerlink" title="풀이과정"></a>풀이과정</h2><ul>
+<li>가격이 오르든 안 오르든 일단 1을 증가시킨다.</li>
+<li>현재 시점의 가격이 이후 가격보다 클 경우 break를 걸면 된다.</li>
+<li>마지막 시점은 무조건 0이니 정답 리스트에 0을 추가하면 된다.</li>
+</ul>
+<h2 id="Code-Python"><a href="#Code-Python" class="headerlink" title="Code (Python)"></a>Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(prices)</span>:</span></span><br><span class="line">    answer = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(prices) - <span class="number">1</span>):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, len(prices)):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> (prices[i] &gt; prices[j]):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        answer.append(count)</span><br><span class="line"></span><br><span class="line">    answer.append(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/21/js-hashbang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/21/js-hashbang/" class="post-title-link" itemprop="url">[Javascript] 해시뱅 (HashBang)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+09:00">2019-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/21/js-hashbang/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/21/js-hashbang/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="해시뱅"><a href="#해시뱅" class="headerlink" title="해시뱅?"></a>해시뱅?</h2><p>얼마 전 신기한 URL을 봤다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.test.com&#x2F;#&#x2F;</span><br><span class="line">www.test.com&#x2F;#&#x2F;settings</span><br><span class="line">www.test.com&#x2F;#&#x2F;register</span><br></pre></td></tr></table></figure>
+
+<p>이런 식으로 URL에 #이 붙는 것이다. 처음에는 뭔지 몰라 그냥 지나갔는데 오늘 이것의 정체가 해시뱅이라는 것을 알게 되었다. 샵 다음에 느낌표(#!)를 붙이기도 하나 보다. 이름부터가 해시뱅(#!)인 걸 보면… 아무튼 해시뱅은 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm91dHNpZGVyLm5lLmtyLzY5OA==" title="https://blog.outsider.ne.kr/698">이 블로그<i class="fa fa-external-link"></i></span>에 엄청나게 자세히 설명이 되어 있다.</p>
+<p>블로그 글을 요약하자면, 해시뱅을 사용하는 이유는 <strong>단일 페이지 애플리케이션(SPA)</strong> 구현을 위해서다. 해시뱅을 사용하면 페이지 갱신 없이 URL을 변경할 수 있다. 정확히는 변경되는 것처럼 보이는 거지만. 해시뱅에서 # 다음 부분을 <code>fragment identifier</code>라고 하는데, 위 예제에서는 settings, register이 <code>fragment identifier</code>가 된다. 해시뱅의 원리는 html의 네임 앵커를 이용한 것이다.</p>
+<p>꽤 오래 전에 사용했던 기술이고 지금은 deprecated 되었다. (하지만 내가 사용하게 되는데…)</p>
+<h2 id="React에-해시뱅-적용하기"><a href="#React에-해시뱅-적용하기" class="headerlink" title="React에 해시뱅 적용하기"></a>React에 해시뱅 적용하기</h2><p>적용 방법은 단순하다. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JlYWN0VHJhaW5pbmcvcmVhY3Qtcm91dGVyL2Jsb2IvbWFzdGVyL3BhY2thZ2VzL3JlYWN0LXJvdXRlci1kb20vZG9jcy9hcGkvSGFzaFJvdXRlci5tZA==" title="https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/HashRouter.md">HashRouter<i class="fa fa-external-link"></i></span>를 사용하면 된다.</p>
+<p><code>BrowserRouter</code> 에서</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import &#123; BrowserRouter &#125; from &#39;react-router-dom&#39;;</span><br><span class="line">import App from &#39;.&#x2F;components&#x2F;App&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const Routes &#x3D; () &#x3D;&gt; (</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &lt;App &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;BrowserRouter&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default Routes;</span><br></pre></td></tr></table></figure>
+
+<p><code>HashRouter</code>로 바꿔주었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import &#123; HashRouter &#125; from &#39;react-router-dom&#39;;</span><br><span class="line">import App from &#39;.&#x2F;components&#x2F;App&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const Routes &#x3D; () &#x3D;&gt; (</span><br><span class="line">  &lt;HashRouter&gt;</span><br><span class="line">    &lt;App &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;HashRouter&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default Routes;</span><br></pre></td></tr></table></figure>
+
+<p>HashRouter를 굳이 사용해야 할 이유를 하나 꼽자면 레거시 브라우저(IE9 이하) 지원 정도…? 그 이외에는 사용해야 할 이유를 잘 모르겠다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm91dHNpZGVyLm5lLmtyLzY5OA==" title="https://blog.outsider.ne.kr/698">해시뱅(#!)에 대해서…<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMzAwOTM4MC93aGF0cy10aGUtc2hlYmFuZy1oYXNoYmFuZy1pbi1mYWNlYm9vay1hbmQtbmV3LXR3aXR0ZXItdXJscy1mb3I=" title="https://stackoverflow.com/questions/3009380/whats-the-shebang-hashbang-in-facebook-and-new-twitter-urls-for">What’s the shebang/hashbang (#!) in Facebook and new Twitter URLs for?<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/9/">9</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Stella</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Nlb25naHVp" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Seonghui"><i class="fa fa-fw fa-github"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnN0ZWxsYXNoeW91QGdtYWlsLmNvbQ==" title="E-Mail → mailto:stellashyou@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Stella</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://stelladevlog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+</body>
+</html>
