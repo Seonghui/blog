@@ -1,8 +1,8 @@
 ---
-title: typescript-eslint-prettier
+title: Typescript 프로젝트에 ESLint, Prettier 적용하기
 date: 2020-12-27 19:52:24
-tags:
-categories:
+tags: [typescript, eslint, prettier]
+categories: typescript
 ---
 # 기본 설정
 
