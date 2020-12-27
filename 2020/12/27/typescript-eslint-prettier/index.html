@@ -48,23 +48,17 @@
 
   <meta name="description" content="기본 설정eslint 설치아래 패키지들을 설치한다. 12$ yarn add -D eslint typescript @typescript-eslint&#x2F;parser @typescript-eslint&#x2F;eslint-plugin$ npm install --save-dev eslint typescript @typescript-eslint&#x2F;parser @typescrip">
 <meta property="og:type" content="article">
-<meta property="og:title" content="typescript-eslint-prettier">
+<meta property="og:title" content="Typescript 프로젝트에 ESLint, Prettier 적용하기">
 <meta property="og:url" content="https://seonghui.github.io/blog/2020/12/27/typescript-eslint-prettier/index.html">
 <meta property="og:site_name" content="dev blog">
 <meta property="og:description" content="기본 설정eslint 설치아래 패키지들을 설치한다. 12$ yarn add -D eslint typescript @typescript-eslint&#x2F;parser @typescript-eslint&#x2F;eslint-plugin$ npm install --save-dev eslint typescript @typescript-eslint&#x2F;parser @typescrip">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2020-12-27T10:52:24.000Z">
-<meta property="article:modified_time" content="2020-12-27T10:58:46.690Z">
+<meta property="article:modified_time" content="2020-12-27T11:15:27.311Z">
 <meta property="article:author" content="Stella">
-<meta property="article:tag" content="개발">
-<meta property="article:tag" content=" 기술블로그">
-<meta property="article:tag" content=" 자바스크립트">
-<meta property="article:tag" content=" react">
-<meta property="article:tag" content=" javascript">
-<meta property="article:tag" content=" 알고리즘">
-<meta property="article:tag" content=" algorithm">
-<meta property="article:tag" content=" 웹개발">
-<meta property="article:tag" content=" 웹">
+<meta property="article:tag" content="typescript">
+<meta property="article:tag" content="eslint">
+<meta property="article:tag" content="prettier">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://seonghui.github.io/blog/2020/12/27/typescript-eslint-prettier/">
@@ -79,7 +73,7 @@
   };
 </script>
 
-  <title>typescript-eslint-prettier | dev blog</title>
+  <title>Typescript 프로젝트에 ESLint, Prettier 적용하기 | dev blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144356483-1"></script>
     <script>
@@ -211,7 +205,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          typescript-eslint-prettier
+          Typescript 프로젝트에 ESLint, Prettier 적용하기
         </h2>
 
         <div class="post-meta">
@@ -222,7 +216,18 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2020-12-27 19:52:24 / Updated at: 19:58:46" itemprop="dateCreated datePublished" datetime="2020-12-27T19:52:24+09:00">2020-12-27</time>
+              <time title="Post created: 2020-12-27 19:52:24 / Updated at: 20:15:27" itemprop="dateCreated datePublished" datetime="2020-12-27T19:52:24+09:00">2020-12-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/typescript/" itemprop="url" rel="index">
+                    <span itemprop="name">typescript</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -310,6 +315,11 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/typescript/" rel="tag"># typescript</a>
+              <a href="/blog/tags/eslint/" rel="tag"># eslint</a>
+              <a href="/blog/tags/prettier/" rel="tag"># prettier</a>
+          </div>
 
         
 
@@ -408,13 +418,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">카테고리</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -515,7 +525,7 @@
   var disqus_config = function() {
     this.page.url = "https://seonghui.github.io/blog/2020/12/27/typescript-eslint-prettier/";
     this.page.identifier = "2020/12/27/typescript-eslint-prettier/";
-    this.page.title = "typescript-eslint-prettier";
+    this.page.title = "Typescript 프로젝트에 ESLint, Prettier 적용하기";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

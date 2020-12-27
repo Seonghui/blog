@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://seonghui.github.io/blog/categories/typescript/</loc>
+        <lastmod>2020-12-27T11:15:27.311Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://seonghui.github.io/blog/categories/React/</loc>
         <lastmod>2020-07-26T13:54:22.440Z</lastmod>
         <changefreq>weekly</changefreq>
