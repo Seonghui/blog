@@ -194,6 +194,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2018/10/17/react-redux-counter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2018/10/17/react-redux-counter/" class="post-title-link" itemprop="url">[React] 초심플 카운터 만들기 with Redux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2018-10-17 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-17T00:00:00+09:00">2018-10-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2018/10/17/react-redux-counter/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/17/react-redux-counter/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Github에서 코드 확인하기 - <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Nlb25naHVpL3JlZHV4LWNvdW50ZXI=" title="https://github.com/Seonghui/redux-counter">클릭<i class="fa fa-external-link"></i></span></p>
+</blockquote>
+<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>Redux는 페이스북에서 만든 자바스크립트 라이브러리이다. <a href="/react-flux/">앞서 말한 Flux</a>의 아이디어를 발전시키되 복잡성을 줄였다. React만 사용해도 되지만 대규모 애플리케이션의 경우 상태 관리하기가 힘들어진다. 그래서 Redux를 사용해 상태 관리를 하는 것이다.</p>
+<h1 id="Redux의-개념"><a href="#Redux의-개념" class="headerlink" title="Redux의 개념"></a>Redux의 개념</h1><p>Redux의 기본 개념은 Flux의 기본 개념과 동일하다. 언급하지 않은 게 있는데, 바로 <strong>구독(Subscribe)</strong>과 <strong>리듀서(Reducer)</strong>라는 개념이다.</p>
+<h2 id="구독-Subscribe"><a href="#구독-Subscribe" class="headerlink" title="구독(Subscribe)"></a>구독(Subscribe)</h2><p>구독은 원하는 스토어를 설정해서 그 스토어에서 값을 받아온다고 생각하면 된다. 개념이 유튜브의 구독과 거의 똑같다. 원하는 채널(스토어)을 구독하고 그 채널의 동영상(데이터)를 본다는 것에 비유하면 이해하기가 쉽다. Redux의 내장함수에는 구독 함수가 존재하지만, react-redux를 사용하면 <code>connect</code> 함수가 대신 해준다. 따라서 직접 구독 함수를 사용할 일은 거의 없다.</p>
+<h2 id="리듀서-Reducer"><a href="#리듀서-Reducer" class="headerlink" title="리듀서(Reducer)"></a>리듀서(Reducer)</h2><p>액션은 무언가가 일어난다는 사실만을 기술한다. 애플리케이션의 상태가 어떻게 바뀌는지 정해주는 것은 리듀서가 할 일이다.</p>
+<h1 id="Redux로-카운터-만들기"><a href="#Redux로-카운터-만들기" class="headerlink" title="Redux로 카운터 만들기"></a>Redux로 카운터 만들기</h1><h2 id="결과-미리보기"><a href="#결과-미리보기" class="headerlink" title="결과 미리보기"></a>결과 미리보기</h2><p><img src="/images/react-redux-counter/result.png" alt="result"><br>플러스, 마이너스는 표시된 수를 더하고 뺀다. 랜덤 버튼을 누르면 랜덤한 숫자가 표시된다. 정말 심플한 카운터다.</p>
+<h2 id="시작하기"><a href="#시작하기" class="headerlink" title="시작하기"></a>시작하기</h2><p>React 프로젝트를 생성하고 redux, react-redux를 전부 설치한다. <strong>redux</strong>는 리덕스 모듈이고, <strong>react-redux</strong>는 리액트에서 리덕스를 사용하기 위한 보조 패키지이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># React 프로젝트 생성하기</span><br><span class="line">$ create-react-app redux-counter</span><br><span class="line"></span><br><span class="line"># 폴더 이동</span><br><span class="line">$ cd redux-counter</span><br><span class="line"></span><br><span class="line"># redux, react-redux 전부 설치하기</span><br><span class="line">$ yarn add redux react-redux</span><br></pre></td></tr></table></figure>
+
+<h2 id="디렉토리-구조"><a href="#디렉토리-구조" class="headerlink" title="디렉토리 구조"></a>디렉토리 구조</h2><p>주요 디렉토리 구조는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">├── App.js</span><br><span class="line">├── index.js</span><br><span class="line">├── actions</span><br><span class="line">│   └── index.js</span><br><span class="line">├── reducers</span><br><span class="line">│   └── index.js</span><br><span class="line">└── components</span><br><span class="line">    └── Counter.js</span><br></pre></td></tr></table></figure>
+
+<p>actions 폴더에서는 프로젝트의 모든 action을, reducers 폴더에는 프로젝트의 모든 reducer를 관리한다. 이건 아주 간단한 애플리케이션이기 때문에 index.js 파일 하나만 있으면 된다.</p>
+<h1 id="컴포넌트-만들기"><a href="#컴포넌트-만들기" class="headerlink" title="컴포넌트 만들기"></a>컴포넌트 만들기</h1><p>일단 뷰를 먼저 만들어준다. Counter 컴포넌트를 만들고 App.js에서 불러와주면 된다.</p>
+<p><strong>App.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"><span class="keyword">import</span> Counter <span class="keyword">from</span> <span class="string">"./components/Counter.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Counter</span> /&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+
+<p><strong>/components/Counter.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;<span class="number">0</span>&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button&gt;+&lt;/</span>button&gt;</span><br><span class="line">        &lt;button&gt;-&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button&gt;random&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Counter;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="액션-만들기"><a href="#액션-만들기" class="headerlink" title="액션 만들기"></a>액션 만들기</h1><p>액션 타입과 액션 생성 함수를 정의한다. 액션은 무언가가 일어난다는 사실만을 적어준다. 액션 생성 함수를 정의할 때는 export를 해주어야 나중에 컴포넌트에서 불러올 수 있다.</p>
+<p><strong>/actions/index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 액션 타입 정의</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> INCREMENT = <span class="string">"INCREMENT"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DECREMENT = <span class="string">"DECREMENT"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> RANDOM_NUMBER = <span class="string">"RANDOM_NUMBER"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 액션 생성 함수 정의</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">increment</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: INCREMENT</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">decrement</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: DECREMENT</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">random_number</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: RANDOM_NUMBER</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="리듀서-만들기"><a href="#리듀서-만들기" class="headerlink" title="리듀서 만들기"></a>리듀서 만들기</h1><p>리듀서는 애플리케이션의 상태가 어떻게 바뀌는지를 알려준다. 리듀서가 여러 개일 때는 redux의 내장함수인 <code>combineReducers</code>를 사용해서 리듀서를 하나로 합치는 작업을 한다. 지금 만드는 카운터는 정말 심플해서 리듀서가 하나밖에는 없지만 한번 사용해보았다.</p>
+<p><strong>/reducers/index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 액션과 내장함수 combineReducers 불러오기</span></span><br><span class="line"><span class="keyword">import</span> &#123; INCREMENT, DECREMENT, RANDOM_NUMBER &#125; <span class="keyword">from</span> <span class="string">"../actions"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 초기 상태(값) 정의</span></span><br><span class="line"><span class="keyword">const</span> initialState = &#123;</span><br><span class="line">  number: <span class="number">0</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 리듀서 작성</span></span><br><span class="line"><span class="keyword">const</span> counter = <span class="function">(<span class="params">state = initialState, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> RANDOM_NUMBER:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        number: <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>)</span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> INCREMENT:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        number: state.number + <span class="number">1</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> DECREMENT:</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        number: state.number - <span class="number">1</span></span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> counterApp = combineReducers(&#123;</span><br><span class="line">  counter</span><br><span class="line">  <span class="comment">// 다른 리듀서를 만들면 이 아래에 적어준다</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> counterApp;</span><br></pre></td></tr></table></figure>
+
+<p>switch-case 문으로 각 액션마다 어떻게 상태가 바뀌는지를 정해준다. 이것도 마찬가지로 export를 해주어야 한다. export한 리듀서는 스토어를 만들 때 사용한다.</p>
+<h2 id="스토어를-만들고-연동하기"><a href="#스토어를-만들고-연동하기" class="headerlink" title="스토어를 만들고 연동하기"></a>스토어를 만들고 연동하기</h2><p>Redux 라이브러리 안에 있는 <code>createStore</code> 함수를 사용해서 스토어를 만들어준다. 스토어는 아까 export한 리듀서로 만들 수 있다. 그리고 react-redux 라이브러리안에 있는 <code>Provider</code> 함수를 사용해서 <code>createStore</code> 함수로 만든 스토어를 연동해주면 된다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"react-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">"./index.css"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> serviceWorker <span class="keyword">from</span> <span class="string">"./serviceWorker"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// createStore와 리듀서 불러오기</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"><span class="keyword">import</span> counterApp <span class="keyword">from</span> <span class="string">"./reducers"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Provider 불러오기</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">"react-redux"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스토어 만들기</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(counterApp);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Provider 사용해서 기존의 App 감싸주기</span></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById("root")</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">serviceWorker.unregister();</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="connect-함수를-사용해-스토어-연동하기"><a href="#connect-함수를-사용해-스토어-연동하기" class="headerlink" title="connect 함수를 사용해 스토어 연동하기"></a>connect 함수를 사용해 스토어 연동하기</h2><p>마지막으로 컴포넌트에 리덕스 스토어 안에 있는 값과 액션 생성 함수를 연결해주면 된다. 이건 react-redux의 내장함수 <code>connect</code> 함수를 사용하면 된다. <code>connect</code> 함수로 연동한 스토어에서 받아오는 값과 액션 생성 함수는 this.props로 접근이 가능하다.</p>
+<p>스토어를 연동하기 전에 <code>mapStateToProps</code>와 <code>mapDispatchProps</code>의 개념을 알아야 한다. <code>mapStateToProps</code>는 스토어 안에 있는 <strong>값</strong>을 props로 전달해주고, <code>mapDispatchProps</code>는 <strong>액션 생성 함수</strong>를 props로 전달해준다.</p>
+<p>지금 만든 스토어에는 값이 <strong>number</strong>, 액션 생성 함수는 <strong>increment, decrement, random_number</strong>가 전부이다. number는 <code>mapStateToProps</code>를 사용해 props로 전달하고, increment, decrement, random_number는 <code>mapDispatchProps</code>를 사용해 props로 전달한다.</p>
+<p><strong>/components/Counter.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 액션 생성 함수와 react-redux의 내장함수 connect 불러오기</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">"react-redux"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; increment, decrement, random_number &#125; <span class="keyword">from</span> <span class="string">"../actions"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;&#123;<span class="keyword">this</span>.props.number&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;this.props.handleIncrement&#125;&gt;+&lt;/</span>button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.props.handledecrement&#125;&gt;-&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;this.props.handleRandom&#125;&gt;random&lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 스토어 안에 있는 값을 props로 전달</span></span><br><span class="line"><span class="regexp">const mapStateToProps = state =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  return &#123;</span></span><br><span class="line"><span class="regexp">    number: state.counter.number</span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 액션 생성 함수를 props로 전달</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 모든 액션은 dispatch를 통해 store에 전달된다는 것을 잊지 말자</span></span><br><span class="line"><span class="regexp">const mapDispatchProps = dispatch =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  return &#123;</span></span><br><span class="line"><span class="regexp">    handleIncrement: () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      dispatch(increment());</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    handledecrement: () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      dispatch(decrement());</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    handleRandom: () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      dispatch(random_number());</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ connect 함수 사용해서 컴포넌트에 리덕스 스토어 연동</span></span><br><span class="line"><span class="regexp">export default connect(mapStateToProps, mapDispatchProps)(Counter);</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sdW5pdC5naXRib29rLmlvL3JlZHV4LWluLWtvcmVhbi8=" title="https://lunit.gitbook.io/redux-in-korean/">Redux 공식 문서(한글)<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly92ZWxvcGVydC5jb20vMzM0Ng==" title="https://velopert.com/3346">Velopert님 블로그<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2018/10/16/bj-2193/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1175,110 +1308,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2018/09/28/bj-2747/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Stella">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dev blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2018/09/28/bj-2747/" class="post-title-link" itemprop="url">[백준/2747] 피보나치 수</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-
-              <time title="Post created: 2018-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T00:00:00+09:00">2018-09-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%EB%B0%B1%EC%A4%80/" itemprop="url" rel="index">
-                    <span itemprop="name">백준</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/blog/2018/09/28/bj-2747/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/28/bj-2747/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>Baekjoon Online Judge - <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWNtaWNwYy5uZXQvcHJvYmxlbS8yNzQ3" title="https://www.acmicpc.net/problem/2747">2747<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><ul>
-<li>본격 DP 들어가기 전에 한번 풀어본 문제.</li>
-<li>메모이제이션으로 풀었는데도 시간 초과가 떠서 당황하게 만들었던 문제다.</li>
-<li>알고 보니 내 코드에 문제가 있는 거였음. 역시 컴파일러는 거짓말을 안 한다… ㅜ</li>
-<li>일단 전역으로 배열 선언한 다음 메인 함수에서 초기화를 해준다.</li>
-<li>이때 입력값보다 1을 더해서 배열의 크기를 정해주어야 한다.</li>
-<li>예를 들어 0부터 10까지의 피보나치 수열을 구한다면, 배열의 크기는 0~10까지인 총 11이 되어야 하기 때문이다.</li>
-<li>그리고 피보나치 수열을 구하는 함수에서 배열에 값을 넣어주면 된다.</li>
-<li>나는 배열을 지역 변수로 선언했다가 시간 초과를 보았다… ㅡㅡ;;</li>
-<li>사실 1003 문제 풀고 싶었는데… 온갖 삽질로 시간 초과만 보다가 결국 풀지 못했다.</li>
-<li>1003은 다음 기회에… 꼭 플고 만다.</li>
-</ul>
-<h2 id="Code-JAVA"><a href="#Code-JAVA" class="headerlink" title="Code (JAVA)"></a>Code (JAVA)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span>[] memo;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      memo[n] = n;</span><br><span class="line">      <span class="keyword">return</span> n;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (memo[n] != <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> memo[n];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> memo[n] = fibonacci(n-<span class="number">1</span>) + fibonacci(n-<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">    BufferedReader bf = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">    <span class="keyword">int</span> input = Integer.parseInt(bf.readLine());</span><br><span class="line">    memo = <span class="keyword">new</span> <span class="keyword">int</span>[input + <span class="number">1</span>];</span><br><span class="line">    System.out.println(fibonacci(input));</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1349,7 +1378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>

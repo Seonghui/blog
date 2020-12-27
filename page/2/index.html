@@ -194,6 +194,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/21/js-hashbang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Stella">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dev blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2019/10/21/js-hashbang/" class="post-title-link" itemprop="url">[Javascript] 해시뱅 (HashBang)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+09:00">2019-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/blog/2019/10/21/js-hashbang/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/21/js-hashbang/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="해시뱅"><a href="#해시뱅" class="headerlink" title="해시뱅?"></a>해시뱅?</h2><p>얼마 전 신기한 URL을 봤다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.test.com&#x2F;#&#x2F;</span><br><span class="line">www.test.com&#x2F;#&#x2F;settings</span><br><span class="line">www.test.com&#x2F;#&#x2F;register</span><br></pre></td></tr></table></figure>
+
+<p>이런 식으로 URL에 #이 붙는 것이다. 처음에는 뭔지 몰라 그냥 지나갔는데 오늘 이것의 정체가 해시뱅이라는 것을 알게 되었다. 샵 다음에 느낌표(#!)를 붙이기도 하나 보다. 이름부터가 해시뱅(#!)인 걸 보면… 아무튼 해시뱅은 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm91dHNpZGVyLm5lLmtyLzY5OA==" title="https://blog.outsider.ne.kr/698">이 블로그<i class="fa fa-external-link"></i></span>에 엄청나게 자세히 설명이 되어 있다.</p>
+<p>블로그 글을 요약하자면, 해시뱅을 사용하는 이유는 <strong>단일 페이지 애플리케이션(SPA)</strong> 구현을 위해서다. 해시뱅을 사용하면 페이지 갱신 없이 URL을 변경할 수 있다. 정확히는 변경되는 것처럼 보이는 거지만. 해시뱅에서 # 다음 부분을 <code>fragment identifier</code>라고 하는데, 위 예제에서는 settings, register이 <code>fragment identifier</code>가 된다. 해시뱅의 원리는 html의 네임 앵커를 이용한 것이다.</p>
+<p>꽤 오래 전에 사용했던 기술이고 지금은 deprecated 되었다. (하지만 내가 사용하게 되는데…)</p>
+<h2 id="React에-해시뱅-적용하기"><a href="#React에-해시뱅-적용하기" class="headerlink" title="React에 해시뱅 적용하기"></a>React에 해시뱅 적용하기</h2><p>적용 방법은 단순하다. <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JlYWN0VHJhaW5pbmcvcmVhY3Qtcm91dGVyL2Jsb2IvbWFzdGVyL3BhY2thZ2VzL3JlYWN0LXJvdXRlci1kb20vZG9jcy9hcGkvSGFzaFJvdXRlci5tZA==" title="https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/HashRouter.md">HashRouter<i class="fa fa-external-link"></i></span>를 사용하면 된다.</p>
+<p><code>BrowserRouter</code> 에서</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import &#123; BrowserRouter &#125; from &#39;react-router-dom&#39;;</span><br><span class="line">import App from &#39;.&#x2F;components&#x2F;App&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const Routes &#x3D; () &#x3D;&gt; (</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &lt;App &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;BrowserRouter&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default Routes;</span><br></pre></td></tr></table></figure>
+
+<p><code>HashRouter</code>로 바꿔주었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import &#123; HashRouter &#125; from &#39;react-router-dom&#39;;</span><br><span class="line">import App from &#39;.&#x2F;components&#x2F;App&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const Routes &#x3D; () &#x3D;&gt; (</span><br><span class="line">  &lt;HashRouter&gt;</span><br><span class="line">    &lt;App &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;HashRouter&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default Routes;</span><br></pre></td></tr></table></figure>
+
+<p>HashRouter를 굳이 사용해야 할 이유를 하나 꼽자면 레거시 브라우저(IE9 이하) 지원 정도…? 그 이외에는 사용해야 할 이유를 잘 모르겠다.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm91dHNpZGVyLm5lLmtyLzY5OA==" title="https://blog.outsider.ne.kr/698">해시뱅(#!)에 대해서…<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMzAwOTM4MC93aGF0cy10aGUtc2hlYmFuZy1oYXNoYmFuZy1pbi1mYWNlYm9vay1hbmQtbmV3LXR3aXR0ZXItdXJscy1mb3I=" title="https://stackoverflow.com/questions/3009380/whats-the-shebang-hashbang-in-facebook-and-new-twitter-urls-for">What’s the shebang/hashbang (#!) in Facebook and new Twitter URLs for?<i class="fa fa-external-link"></i></span></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/10/17/leetcode-832/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1108,110 +1204,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://seonghui.github.io/blog/2019/08/06/boj-4673/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Stella">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="dev blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2019/08/06/boj-4673/" class="post-title-link" itemprop="url">[백준/4673] 셀프 넘버</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-
-              <time title="Post created: 2019-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+09:00">2019-08-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-05-05 17:00:03" itemprop="dateModified" datetime="2020-05-05T17:00:03+09:00">2020-05-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%EB%B0%B1%EC%A4%80/" itemprop="url" rel="index">
-                    <span itemprop="name">백준</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/blog/2019/08/06/boj-4673/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/06/boj-4673/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>Baekjoon Online Judge - <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWNtaWNwYy5uZXQvcHJvYmxlbS80Njcz" title="https://www.acmicpc.net/problem/4673">4673<i class="fa fa-external-link"></i></span></p>
-</blockquote>
-<h2 id="Code-Python"><a href="#Code-Python" class="headerlink" title="Code (Python)"></a>Code (Python)</h2><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWNtaWNwYy5uZXQvcHJvYmxlbS8yMjMx" title="https://www.acmicpc.net/problem/2231">분해합<i class="fa fa-external-link"></i></span>과 비슷한 문제.</li>
-<li>생성자가 없는 숫자를 전부 출력하면 된다.</li>
-<li>이래도 되나 싶었는데, 그냥 리스트에 다 집어넣고 집합 연산으로 풀어서 AC가 나왔다.</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">number_list = []</span><br><span class="line">hap_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10001</span>):</span><br><span class="line">    hap = <span class="number">0</span></span><br><span class="line">    number = i</span><br><span class="line">    number_list.append(i)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> number != <span class="number">0</span>:</span><br><span class="line">        rest = int(number % <span class="number">10</span>)</span><br><span class="line">        hap += rest</span><br><span class="line">        number = int(number/<span class="number">10</span>)</span><br><span class="line">    hap += i</span><br><span class="line">    hap_list.append(hap)</span><br><span class="line"></span><br><span class="line">number_array = sorted(set(number_list) - set(hap_list))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> number_array:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-
-<h2 id="References-1-출처"><a href="#References-1-출처" class="headerlink" title="References 1 (출처)"></a>References 1 <span class="exturl" data-url="aHR0cHM6Ly90aGlzLXByb2dyYW1tZXIuY29tL2VudHJ5LyVFQiVCMCVCMSVFQyVBNCU4MDQ2NzMlRUQlOEMlOEMlRUMlOUQlQjQlRUMlOEQlQUMtJUVDJTg1JTgwJUVEJTk0JTg0LSVFQiU4NCU5OCVFQiVCMiU4NA==" title="https://this-programmer.com/entry/%EB%B0%B1%EC%A4%804673%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%85%80%ED%94%84-%EB%84%98%EB%B2%84">(출처)<i class="fa fa-external-link"></i></span></h2><ul>
-<li>음. 굳이 리스트를 안 써도 되는구나. 집합 공부해야겠다.</li>
-<li>자릿수를 더하는 방식이 신기하다. 수를 string으로 형변환하고 for문으로 자릿수를 전부 더해버렸다. 지난번 분해합에서 봤던 레퍼펀스랑 비슷한데 다른 느낌.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">natural_number_set = set(range(<span class="number">1</span>, <span class="number">10001</span>))</span><br><span class="line">generated_number_set= set()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10001</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> str(i):</span><br><span class="line">        i += int(j)</span><br><span class="line">    generated_number_set.add(i)</span><br><span class="line"></span><br><span class="line">self_number_set = natural_number_set - generated_number_set</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sorted(self_number_set):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1282,7 +1274,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">85</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
